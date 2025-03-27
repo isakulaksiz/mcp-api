@@ -1,8 +1,0 @@
-2025-03-27 18:17:54,001 - fsevents - DEBUG - NativeEvent(path="/Users/isakulaksiz/Desktop/mcp-client/mcp_streamlit.log", inode=61896124, flags=18100, id=1148426946): is_created, is_file, is_xattr_mod
-2025-03-27 18:17:54,001 - fsevents - DEBUG - queue_event FileCreatedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/mcp_streamlit.log', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
-2025-03-27 18:17:54,002 - fsevents - DEBUG - queue_event DirModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
-2025-03-27 18:17:54,002 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/mcp_streamlit.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
-2025-03-27 18:17:54,182 - fsevents - DEBUG - NativeEvent(path="/Users/isakulaksiz/Desktop/mcp-client/mcp_streamlit.log", inode=61896124, flags=10400, id=1148426957): is_file, is_inode_meta_mod
-2025-03-27 18:17:54,182 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/mcp_streamlit.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
-2025-03-27 18:17:54,274 - fsevents - DEBUG - NativeEvent(path="/Users/isakulaksiz/Desktop/mcp-client/mcp_streamlit.log", inode=61896124, flags=410400, id=1148426984): is_cloned, is_file, is_inode_meta_mod
-2025-03-27 18:17:54,275 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/mcp_streamlit.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
