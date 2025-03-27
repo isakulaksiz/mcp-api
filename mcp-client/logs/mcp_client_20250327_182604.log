@@ -1,0 +1,48 @@
+2025-03-27 18:26:04,770 - MCPClient - INFO - Importing required libraries
+2025-03-27 18:26:04,770 - MCPClient - INFO - Loading environment variables from .env
+2025-03-27 18:26:04,773 - MCPClient - INFO - Setting up Streamlit UI
+2025-03-27 18:26:04,776 - MCPClient - DEBUG - GPT-2 URL input: http://127.0.0.1:5054/generate
+2025-03-27 18:26:04,777 - MCPClient - DEBUG - Server script input: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:26:04,778 - MCPClient - INFO - Setting up chat interface
+2025-03-27 18:26:04,779 - MCPClient - DEBUG - Displaying 0 messages
+2025-03-27 18:26:04,780 - MCPClient - DEBUG - Setting up user input chat field
+2025-03-27 18:26:04,780 - MCPClient - INFO - User input received: hello...
+2025-03-27 18:26:04,781 - MCPClient - DEBUG - Adding user message to session state
+2025-03-27 18:26:04,782 - MCPClient - DEBUG - Displaying user message
+2025-03-27 18:26:04,784 - MCPClient - INFO - Processing user query
+2025-03-27 18:26:04,787 - MCPClient - DEBUG - Calling process_query
+2025-03-27 18:26:04,787 - MCPClient - DEBUG - Running async function: process_query
+2025-03-27 18:26:04,788 - MCPClient - INFO - Processing query: hello
+2025-03-27 18:26:04,789 - MCPClient - DEBUG - Formatting tools information for prompt
+2025-03-27 18:26:04,789 - MCPClient - DEBUG - Tools info: Available tools:
+- get_ner: 
+  Input schema: {'properties': {'text': {'title': 'Text', 'type': 'string'}}, 'required': ['text'], 'title': 'get_nerArguments', 'type': 'object'}
+
+2025-03-27 18:26:04,789 - MCPClient - DEBUG - Created prompt with length: 379
+2025-03-27 18:26:04,790 - MCPClient - INFO - Calling GPT-2 API
+2025-03-27 18:26:04,790 - MCPClient - INFO - Calling GPT-2 API with prompt length: 379 and max_length: 100
+2025-03-27 18:26:04,790 - MCPClient - DEBUG - Executing GPT-2 API call in thread
+2025-03-27 18:26:04,790 - MCPClient - INFO - Sending POST request to http://127.0.0.1:5054/generate
+2025-03-27 18:26:04,790 - MCPClient - INFO - Sending POST request to {'prompt': 'Available tools:\n- get_ner: \n  Input schema: {\'properties\': {\'text\': {\'title\': \'Text\', \'type\': \'string\'}}, \'required\': [\'text\'], \'title\': \'get_nerArguments\', \'type\': \'object\'}\n\n\nWhen you need to use a tool, respond with:\nUse tool: <tool_name> with args: {<json_args>}\n\nFor example:\nUse tool: get_ner with args: {"text": "John Smith works at Google."}\n\nUser query: hello\n\nAnswer: ', 'max_length': 100}
+2025-03-27 18:26:04,835 - MCPClient - INFO - Received response with status code: 500
+2025-03-27 18:26:04,835 - MCPClient - ERROR - API Error (500): <!doctype html>
+<html lang=en>
+<title>500 Internal Server Error</title>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error and was unable to complete your request. Either the s...
+2025-03-27 18:26:04,835 - MCPClient - DEBUG - GPT-2 API response received: {'error': 'API Error (500): <!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to com...
+2025-03-27 18:26:04,836 - MCPClient - ERROR - Error in GPT-2 response: API Error (500): <!doctype html>
+<html lang=en>
+<title>500 Internal Server Error</title>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error and was unable to complete your request. Either the s...
+2025-03-27 18:26:04,836 - MCPClient - DEBUG - Async function completed: process_query
+2025-03-27 18:26:04,836 - MCPClient - DEBUG - Query processing complete: {'success': False, 'error': 'API Error (500): <!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and...
+2025-03-27 18:26:04,836 - MCPClient - ERROR - Error in query processing: API Error (500): <!doctype html>
+<html lang=en>
+<title>500 Internal Server Error</title>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error and was unable to complete your request. Either the s...
+2025-03-27 18:26:04,837 - MCPClient - DEBUG - Adding assistant message to session state
+2025-03-27 18:26:04,837 - MCPClient - INFO - Displaying usage instructions
+2025-03-27 18:26:04,838 - MCPClient - INFO - Streamlit app initialization complete

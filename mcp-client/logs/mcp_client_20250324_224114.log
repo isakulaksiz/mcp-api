@@ -1,0 +1,64 @@
+2025-03-24 22:41:14,382 - mcp_client - INFO - Streamlit app started
+2025-03-24 22:41:14,383 - mcp_client - INFO - Connect button clicked for server: /Users/isakulaksiz/Desktop/mcp-server/weather/weather.py
+2025-03-24 22:41:14,383 - mcp_client - DEBUG - Running async function: connect_to_server
+2025-03-24 22:41:14,384 - mcp_client - DEBUG - Using existing event loop
+2025-03-24 22:41:14,384 - mcp_client - DEBUG - Executing connect_to_server in event loop
+2025-03-24 22:41:14,384 - mcp_client - INFO - Attempting connection to server with script: /Users/isakulaksiz/Desktop/mcp-server/weather/weather.py
+2025-03-24 22:41:14,384 - mcp_client - DEBUG - Server parameters: command=python, script=/Users/isakulaksiz/Desktop/mcp-server/weather/weather.py
+2025-03-24 22:41:14,389 - mcp_client - DEBUG - STDIO transport established
+2025-03-24 22:41:14,390 - mcp_client - DEBUG - Client session created
+2025-03-24 22:41:14,750 - mcp_client - INFO - Session initialized successfully
+2025-03-24 22:41:14,752 - mcp_client - INFO - Found 2 available tools
+2025-03-24 22:41:14,752 - mcp_client - DEBUG - Tool available: get_alerts - Get weather alerts for a US state.
+
+    Args:
+        state: Two-letter US state code (e.g. CA, NY)
+    
+2025-03-24 22:41:14,752 - mcp_client - DEBUG - Tool available: get_forecast - Get weather forecast for a location.
+
+    Args:
+        latitude: Latitude of the location
+        longitude: Longitude of the location
+    
+2025-03-24 22:41:14,752 - mcp_client - INFO - Successfully connected to MCP server
+2025-03-24 22:41:14,752 - mcp_client - DEBUG - Function connect_to_server completed successfully
+2025-03-24 22:41:14,753 - mcp_client - INFO - Successfully connected to server with tools: get_alerts, get_forecast
+2025-03-24 22:41:14,754 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-24 22:41:14,754 - mcp_client - DEBUG - Rendering tools UI with 2 tools
+2025-03-24 22:41:14,755 - mcp_client - DEBUG - Found schema for tool: get_alerts
+2025-03-24 22:41:14,755 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_alerts
+2025-03-24 22:41:14,755 - mcp_client - DEBUG - Rendering input for parameter: state of type string
+2025-03-24 22:41:14,755 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-24 22:41:25,522 - mcp_client - INFO - Streamlit app started
+2025-03-24 22:41:25,523 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-24 22:41:25,524 - mcp_client - INFO - New user query received: merhaba
+2025-03-24 22:41:25,526 - mcp_client - DEBUG - Sending query to Claude via process_query
+2025-03-24 22:41:25,526 - mcp_client - DEBUG - Running async function: process_query
+2025-03-24 22:41:25,526 - mcp_client - DEBUG - Using existing event loop
+2025-03-24 22:41:25,526 - mcp_client - DEBUG - Executing process_query in event loop
+2025-03-24 22:41:25,527 - mcp_client - INFO - Processing query: merhaba
+2025-03-24 22:41:25,527 - mcp_client - DEBUG - Making initial Claude API call
+2025-03-24 22:41:31,465 - mcp_client - DEBUG - Received response from Claude with 1 content items
+2025-03-24 22:41:31,465 - mcp_client - DEBUG - Received text response from Claude: Merhaba! Size nasıl yardımcı olabilirim? Size hava durumu ile ilgili bilgi verebilirim, ancak sorgun...
+2025-03-24 22:41:31,465 - mcp_client - INFO - Query processing completed
+2025-03-24 22:41:31,465 - mcp_client - DEBUG - Function process_query completed successfully
+2025-03-24 22:41:31,466 - mcp_client - DEBUG - Displayed Claude's response
+2025-03-24 22:41:31,466 - mcp_client - DEBUG - Added assistant response to message history
+2025-03-24 22:41:31,466 - mcp_client - DEBUG - Rendering tools UI with 2 tools
+2025-03-24 22:41:31,467 - mcp_client - DEBUG - Found schema for tool: get_alerts
+2025-03-24 22:41:31,467 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_alerts
+2025-03-24 22:41:31,467 - mcp_client - DEBUG - Rendering input for parameter: state of type string
+2025-03-24 22:41:31,468 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-24 22:41:53,729 - mcp_client - INFO - Streamlit app started
+2025-03-24 22:41:53,730 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-24 22:41:53,731 - mcp_client - INFO - New user query received: New York hava durumu nedir
+2025-03-24 22:41:53,731 - mcp_client - DEBUG - Sending query to Claude via process_query
+2025-03-24 22:41:53,731 - mcp_client - DEBUG - Running async function: process_query
+2025-03-24 22:41:53,731 - mcp_client - DEBUG - Using existing event loop
+2025-03-24 22:41:53,732 - mcp_client - DEBUG - Executing process_query in event loop
+2025-03-24 22:41:53,732 - mcp_client - INFO - Processing query: New York hava durumu nedir
+2025-03-24 22:41:53,732 - mcp_client - DEBUG - Making initial Claude API call
+2025-03-24 22:41:56,242 - mcp_client - DEBUG - Received response from Claude with 2 content items
+2025-03-24 22:41:56,242 - mcp_client - DEBUG - Received text response from Claude: Size New York'un hava durumu hakkında bilgi vermek için önce New York eyaletindeki hava durumu uyarı...
+2025-03-24 22:41:56,243 - mcp_client - INFO - Claude is requesting tool: get_alerts with args: {"state": "NY"}
+2025-03-24 22:41:56,244 - mcp_client - DEBUG - Executing tool call for get_alerts

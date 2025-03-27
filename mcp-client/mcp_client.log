@@ -1,0 +1,285 @@
+2025-03-27 18:14:36,018 - MCPClient - INFO - Script started
+2025-03-27 18:14:36,018 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-27 18:14:36,018 - MCPClient - INFO - Starting MCP Client
+2025-03-27 18:14:36,019 - MCPClient - ERROR - Missing server script path argument
+2025-03-27 18:14:36,029 - fsevents - DEBUG - NativeEvent(path="/Users/isakulaksiz/Desktop/mcp-client/mcp_client.log", inode=61892253, flags=18100, id=1148369292): is_created, is_file, is_xattr_mod
+2025-03-27 18:14:36,029 - fsevents - DEBUG - queue_event FileCreatedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/mcp_client.log', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2025-03-27 18:14:36,030 - fsevents - DEBUG - queue_event DirModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2025-03-27 18:14:36,030 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/mcp_client.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-03-27 18:14:36,187 - fsevents - DEBUG - NativeEvent(path="/Users/isakulaksiz/Desktop/mcp-client/mcp_client.log", inode=61892253, flags=10400, id=1148369300): is_file, is_inode_meta_mod
+2025-03-27 18:14:36,187 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/mcp_client.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-03-27 18:14:36,322 - fsevents - DEBUG - NativeEvent(path="/Users/isakulaksiz/Desktop/mcp-client/mcp_client.log", inode=61892253, flags=410400, id=1148369384): is_cloned, is_file, is_inode_meta_mod
+2025-03-27 18:14:36,322 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/mcp_client.log', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-03-27 18:14:44,915 - MCPClient - INFO - Script started
+2025-03-27 18:14:44,916 - asyncio - DEBUG - Using selector: KqueueSelector
+2025-03-27 18:14:44,916 - MCPClient - INFO - Starting MCP Client
+2025-03-27 18:14:44,916 - MCPClient - ERROR - Missing server script path argument
+2025-03-27 18:17:44,678 - fsevents - DEBUG - NativeEvent(path="/Users/isakulaksiz/Desktop/mcp-client/client4.py", inode=61854753, flags=11400, id=1148425953): is_file, is_inode_meta_mod, is_modified
+2025-03-27 18:17:44,679 - fsevents - DEBUG - NativeEvent(path="/Users/isakulaksiz/Desktop/mcp-client/client4.py~", inode=61896078, flags=1d700, id=1148425956): is_coalesced, is_created, is_file, is_inode_meta_mod, is_modified, is_owner_change, is_removed, is_xattr_mod
+2025-03-27 18:17:44,679 - fsevents - DEBUG - NativeEvent(path="/Users/isakulaksiz/Desktop/mcp-client/.idea/workspace.xml", inode=60856794, flags=11400, id=1148425980): is_file, is_inode_meta_mod, is_modified
+2025-03-27 18:17:44,679 - fsevents - DEBUG - NativeEvent(path="/Users/isakulaksiz/Desktop/mcp-client/.idea/workspace.xml~", inode=61896080, flags=1d700, id=1148425983): is_coalesced, is_created, is_file, is_inode_meta_mod, is_modified, is_owner_change, is_removed, is_xattr_mod
+2025-03-27 18:17:44,679 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/client4.py', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-03-27 18:17:44,680 - fsevents - DEBUG - queue_event FileCreatedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/client4.py~', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2025-03-27 18:17:44,680 - fsevents - DEBUG - queue_event DirModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2025-03-27 18:17:44,680 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/client4.py~', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-03-27 18:17:44,681 - fsevents - DEBUG - queue_event FileDeletedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/client4.py~', dest_path='', event_type='deleted', is_directory=False, is_synthetic=False)
+2025-03-27 18:17:44,682 - fsevents - DEBUG - queue_event DirModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2025-03-27 18:17:44,682 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/.idea/workspace.xml', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-03-27 18:17:44,682 - fsevents - DEBUG - queue_event FileCreatedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/.idea/workspace.xml~', dest_path='', event_type='created', is_directory=False, is_synthetic=False)
+2025-03-27 18:17:44,682 - fsevents - DEBUG - queue_event DirModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/.idea', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2025-03-27 18:17:44,682 - fsevents - DEBUG - queue_event FileModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/.idea/workspace.xml~', dest_path='', event_type='modified', is_directory=False, is_synthetic=False)
+2025-03-27 18:17:44,682 - fsevents - DEBUG - queue_event FileDeletedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/.idea/workspace.xml~', dest_path='', event_type='deleted', is_directory=False, is_synthetic=False)
+2025-03-27 18:17:44,683 - fsevents - DEBUG - queue_event DirModifiedEvent(src_path='/Users/isakulaksiz/Desktop/mcp-client/.idea', dest_path='', event_type='modified', is_directory=True, is_synthetic=False)
+2025-03-27 18:17:45,212 - fsevents - DEBUG - NativeEvent(path="/Users/isakulaksiz/Desktop/mcp-client/.idea/workspace.xml", inode=60856794, flags=410000, id=1148426127): is_cloned, is_file
+2025-03-27 18:17:45,213 - fsevents - DEBUG - NativeEvent(path="/Users/isakulaksiz/Desktop/mcp-client/client4.py", inode=61854753, flags=410000, id=1148426145): is_cloned, is_file
+2025-03-27 18:32:35,586 - INFO - Environment variables loaded from .env
+2025-03-27 18:32:35,587 - INFO - Script executed directly
+2025-03-27 18:32:35,587 - INFO - Starting MCP Client application
+2025-03-27 18:32:35,587 - INFO - Server script path: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:32:35,587 - INFO - Initializing MCPClient
+2025-03-27 18:32:35,616 - INFO - Anthropic client initialized
+2025-03-27 18:32:35,616 - INFO - Connecting to server
+2025-03-27 18:32:35,616 - INFO - Connecting to server using script: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:32:35,616 - INFO - Using command: python for server script
+2025-03-27 18:32:35,617 - INFO - Establishing stdio client connection
+2025-03-27 18:32:35,623 - INFO - Creating client session
+2025-03-27 18:32:35,624 - INFO - Initializing session
+2025-03-27 18:32:35,830 - INFO - Session initialized successfully
+2025-03-27 18:32:35,831 - INFO - Requesting list of available tools
+2025-03-27 18:32:35,832 - INFO - Connected to server with tools: ['get_ner']
+2025-03-27 18:32:35,832 - INFO - Starting chat loop
+2025-03-27 18:32:35,832 - INFO - Starting interactive chat loop
+2025-03-27 18:32:40,520 - INFO - User input: hello
+2025-03-27 18:32:40,521 - INFO - Processing user query
+2025-03-27 18:32:40,521 - INFO - Processing query: hello
+2025-03-27 18:32:40,521 - INFO - Fetching available tools
+2025-03-27 18:32:40,526 - INFO - Making initial Claude API call
+2025-03-27 18:32:48,245 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:32:48,253 - INFO - Received initial response from Claude
+2025-03-27 18:32:48,253 - INFO - Processing Claude response
+2025-03-27 18:32:48,253 - INFO - Processing text content from Claude
+2025-03-27 18:32:48,253 - INFO - Query processing completed
+2025-03-27 18:32:48,253 - INFO - Query processed successfully
+2025-03-27 18:33:07,843 - INFO - User input: bu metne adlandırılmış varlık tanıma uygula: isa kulaksız atatürk üniversitesinde eğitim görmektedir tc: 22111555888
+2025-03-27 18:33:07,844 - INFO - Processing user query
+2025-03-27 18:33:07,844 - INFO - Processing query: bu metne adlandırılmış varlık tanıma uygula: isa kulaksız atatürk üniversitesinde eğitim görmektedir tc: 22111555888
+2025-03-27 18:33:07,844 - INFO - Fetching available tools
+2025-03-27 18:33:07,849 - INFO - Making initial Claude API call
+2025-03-27 18:33:15,394 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:33:15,397 - INFO - Received initial response from Claude
+2025-03-27 18:33:15,397 - INFO - Processing Claude response
+2025-03-27 18:33:15,397 - INFO - Processing text content from Claude
+2025-03-27 18:33:15,397 - INFO - Processing tool use: get_ner
+2025-03-27 18:33:15,397 - INFO - Executing tool call: get_ner
+2025-03-27 18:33:15,469 - INFO - Tool call completed: get_ner
+2025-03-27 18:33:15,469 - INFO - Making follow-up Claude API call with tool results
+2025-03-27 18:33:17,750 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:33:17,753 - INFO - Received follow-up response from Claude
+2025-03-27 18:33:17,753 - INFO - Query processing completed
+2025-03-27 18:33:17,753 - INFO - Query processed successfully
+2025-03-27 18:34:30,809 - INFO - Environment variables loaded from .env
+2025-03-27 18:34:30,809 - INFO - Script executed directly
+2025-03-27 18:34:30,809 - INFO - Starting MCP Client application
+2025-03-27 18:34:30,810 - INFO - Server script path: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:34:30,810 - INFO - Initializing MCPClient
+2025-03-27 18:34:30,839 - INFO - Anthropic client initialized
+2025-03-27 18:34:30,839 - INFO - Connecting to server
+2025-03-27 18:34:30,839 - INFO - Connecting to server using script: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:34:30,839 - INFO - Using command: python for server script
+2025-03-27 18:34:30,839 - INFO - Establishing stdio client connection
+2025-03-27 18:34:30,846 - INFO - Creating client session
+2025-03-27 18:34:30,846 - INFO - Initializing session
+2025-03-27 18:34:31,059 - INFO - Session initialized successfully
+2025-03-27 18:34:31,060 - INFO - Requesting list of available tools
+2025-03-27 18:34:31,061 - INFO - Connected to server with tools: ['get_ner']
+2025-03-27 18:34:31,061 - INFO - Starting chat loop
+2025-03-27 18:34:31,061 - INFO - Starting interactive chat loop
+2025-03-27 18:34:33,390 - INFO - User input: hello
+2025-03-27 18:34:33,390 - INFO - Processing user query
+2025-03-27 18:34:33,390 - INFO - Processing query: hello
+2025-03-27 18:34:33,391 - INFO - Fetching available tools
+2025-03-27 18:34:33,395 - INFO - Making initial Claude API call
+2025-03-27 18:34:41,923 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:34:41,931 - INFO - Received initial response from Claude
+2025-03-27 18:34:41,931 - INFO - Processing Claude response
+2025-03-27 18:34:41,931 - INFO - Query processing completed
+2025-03-27 18:34:41,931 - INFO - Query processed successfully
+2025-03-27 18:34:55,876 - INFO - User input: bu metne adlandırılmış varlık tanıma uygula: isa kulaksız atatürk üniversitesinde eğitim görmektedir tc: 22111555888
+2025-03-27 18:34:55,877 - INFO - Processing user query
+2025-03-27 18:34:55,877 - INFO - Processing query: bu metne adlandırılmış varlık tanıma uygula: isa kulaksız atatürk üniversitesinde eğitim görmektedir tc: 22111555888
+2025-03-27 18:34:55,877 - INFO - Fetching available tools
+2025-03-27 18:34:55,882 - INFO - Making initial Claude API call
+2025-03-27 18:34:59,433 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:34:59,435 - INFO - Received initial response from Claude
+2025-03-27 18:34:59,436 - INFO - Processing Claude response
+2025-03-27 18:34:59,436 - INFO - Processing tool use: get_ner
+2025-03-27 18:34:59,436 - INFO - Executing tool call: get_ner
+2025-03-27 18:34:59,496 - INFO - Tool call completed: get_ner
+2025-03-27 18:34:59,497 - INFO - Making follow-up Claude API call with tool results
+2025-03-27 18:35:08,319 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:35:08,322 - INFO - Received follow-up response from Claude
+2025-03-27 18:35:08,322 - INFO - Query processing completed
+2025-03-27 18:35:08,322 - INFO - Query processed successfully
+2025-03-27 18:37:23,306 - INFO - Environment variables loaded from .env
+2025-03-27 18:37:23,307 - INFO - Script executed directly
+2025-03-27 18:37:23,307 - INFO - Starting MCP Client application
+2025-03-27 18:37:23,307 - INFO - Server script path: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:37:23,307 - INFO - Initializing MCPClient
+2025-03-27 18:37:23,341 - INFO - Anthropic client initialized
+2025-03-27 18:37:23,341 - INFO - Connecting to server
+2025-03-27 18:37:23,341 - INFO - Connecting to server using script: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:37:23,342 - INFO - Using command: python for server script
+2025-03-27 18:37:23,342 - INFO - Establishing stdio client connection
+2025-03-27 18:37:23,348 - INFO - Creating client session
+2025-03-27 18:37:23,348 - INFO - Initializing session
+2025-03-27 18:37:23,564 - INFO - Session initialized successfully
+2025-03-27 18:37:23,564 - INFO - Requesting list of available tools
+2025-03-27 18:37:23,566 - INFO - Connected to server with tools: ['get_ner']
+2025-03-27 18:37:23,566 - INFO - Starting chat loop
+2025-03-27 18:37:23,566 - INFO - Starting interactive chat loop
+2025-03-27 18:37:26,997 - INFO - User input: hello
+2025-03-27 18:37:26,997 - INFO - Processing user query
+2025-03-27 18:37:26,998 - INFO - Processing query: hello
+2025-03-27 18:37:26,998 - INFO - Fetching available tools
+2025-03-27 18:37:26,999 - INFO - Making initial Claude API call
+2025-03-27 18:37:38,359 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:37:38,368 - INFO - Received initial response from Claude
+2025-03-27 18:37:38,368 - INFO - Processing Claude response
+2025-03-27 18:37:38,368 - INFO - Processing text content from Claude
+2025-03-27 18:37:38,369 - INFO - Query processing completed
+2025-03-27 18:37:38,369 - INFO - Query processed successfully
+2025-03-27 18:38:17,023 - INFO - User input: apply this sentence: isa kulaksız
+2025-03-27 18:38:17,024 - INFO - Processing user query
+2025-03-27 18:38:17,024 - INFO - Processing query: apply this sentence: isa kulaksız
+2025-03-27 18:38:17,024 - INFO - Fetching available tools
+2025-03-27 18:38:17,034 - INFO - Making initial Claude API call
+2025-03-27 18:38:20,052 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:38:20,055 - INFO - Received initial response from Claude
+2025-03-27 18:38:20,056 - INFO - Processing Claude response
+2025-03-27 18:38:20,056 - INFO - Processing text content from Claude
+2025-03-27 18:38:20,056 - INFO - Processing tool use: get_ner
+2025-03-27 18:38:20,056 - INFO - Executing tool call: get_ner
+2025-03-27 18:38:20,148 - INFO - Tool call completed: get_ner
+2025-03-27 18:38:20,148 - INFO - Making follow-up Claude API call with tool results
+2025-03-27 18:38:25,461 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:38:25,463 - INFO - Received follow-up response from Claude
+2025-03-27 18:38:25,466 - INFO - Query processing completed
+2025-03-27 18:38:25,466 - INFO - Query processed successfully
+2025-03-27 18:39:46,472 - INFO - Environment variables loaded from .env
+2025-03-27 18:39:46,472 - INFO - Script executed directly
+2025-03-27 18:39:46,472 - INFO - Starting MCP Client application
+2025-03-27 18:39:46,472 - INFO - Server script path: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:39:46,472 - INFO - Initializing MCPClient
+2025-03-27 18:39:46,502 - INFO - Anthropic client initialized
+2025-03-27 18:39:46,502 - INFO - Connecting to server
+2025-03-27 18:39:46,502 - INFO - Connecting to server using script: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:39:46,502 - INFO - Using command: python for server script
+2025-03-27 18:39:46,502 - INFO - Establishing stdio client connection
+2025-03-27 18:39:46,508 - INFO - Creating client session
+2025-03-27 18:39:46,509 - INFO - Initializing session
+2025-03-27 18:39:46,723 - INFO - Session initialized successfully
+2025-03-27 18:39:46,723 - INFO - Requesting list of available tools
+2025-03-27 18:39:46,725 - INFO - Connected to server with tools: ['get_ner']
+2025-03-27 18:39:46,725 - INFO - Starting chat loop
+2025-03-27 18:39:46,725 - INFO - Starting interactive chat loop
+2025-03-27 18:39:49,089 - INFO - User input: hello
+2025-03-27 18:39:49,089 - INFO - Processing user query
+2025-03-27 18:39:49,089 - INFO - Processing query: hello
+2025-03-27 18:39:49,089 - INFO - Fetching available tools
+2025-03-27 18:39:49,093 - INFO - Making initial Claude API call
+2025-03-27 18:39:52,706 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:39:52,713 - INFO - Received initial response from Claude
+2025-03-27 18:39:52,713 - INFO - Processing Claude response
+2025-03-27 18:39:52,713 - INFO - Processing text content from Claude
+2025-03-27 18:39:52,713 - INFO - Query processing completed
+2025-03-27 18:39:52,713 - INFO - Query processed successfully
+2025-03-27 18:40:06,123 - INFO - User input: apply this ner isa kulaksız
+2025-03-27 18:40:06,123 - INFO - Processing user query
+2025-03-27 18:40:06,123 - INFO - Processing query: apply this ner isa kulaksız
+2025-03-27 18:40:06,123 - INFO - Fetching available tools
+2025-03-27 18:40:06,126 - INFO - Making initial Claude API call
+2025-03-27 18:40:11,034 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:40:11,037 - INFO - Received initial response from Claude
+2025-03-27 18:40:11,038 - INFO - Processing Claude response
+2025-03-27 18:40:11,038 - INFO - Processing text content from Claude
+2025-03-27 18:40:11,038 - INFO - Processing tool use: get_ner
+2025-03-27 18:40:11,038 - INFO - Executing tool call: get_ner
+2025-03-27 18:40:11,394 - INFO - Tool call completed: get_ner
+2025-03-27 18:40:11,394 - INFO - Making follow-up Claude API call with tool results
+2025-03-27 18:40:13,695 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:40:13,698 - INFO - Received follow-up response from Claude
+2025-03-27 18:40:13,698 - INFO - Query processing completed
+2025-03-27 18:40:13,698 - INFO - Query processed successfully
+2025-03-27 18:44:03,787 - INFO - Environment variables loaded from .env
+2025-03-27 18:44:03,787 - INFO - Script executed directly
+2025-03-27 18:44:03,787 - INFO - Starting MCP Client application
+2025-03-27 18:44:03,787 - INFO - Server script path: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:44:03,787 - INFO - Initializing MCPClient
+2025-03-27 18:44:03,817 - INFO - Anthropic client initialized
+2025-03-27 18:44:03,817 - INFO - Connecting to server
+2025-03-27 18:44:03,817 - INFO - Connecting to server using script: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:44:03,817 - INFO - Using command: python for server script
+2025-03-27 18:44:03,817 - INFO - Establishing stdio client connection
+2025-03-27 18:44:03,823 - INFO - Creating client session
+2025-03-27 18:44:03,823 - INFO - Initializing session
+2025-03-27 18:44:04,035 - INFO - Session initialized successfully
+2025-03-27 18:44:04,035 - INFO - Requesting list of available tools
+2025-03-27 18:44:04,036 - INFO - Connected to server with tools: ['get_ner']
+2025-03-27 18:44:04,037 - INFO - Starting chat loop
+2025-03-27 18:44:04,037 - INFO - Starting interactive chat loop
+2025-03-27 18:44:11,487 - INFO - User input: hangi toollar var
+2025-03-27 18:44:11,488 - INFO - Processing user query
+2025-03-27 18:44:11,488 - INFO - Processing query: hangi toollar var
+2025-03-27 18:44:11,488 - INFO - Fetching available tools
+2025-03-27 18:44:11,493 - INFO - Making initial Claude API call
+2025-03-27 18:44:26,498 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:44:26,506 - INFO - Received initial response from Claude
+2025-03-27 18:44:26,506 - INFO - Processing Claude response
+2025-03-27 18:44:26,507 - INFO - Processing text content from Claude
+2025-03-27 18:44:26,507 - INFO - Query processing completed
+2025-03-27 18:44:26,507 - INFO - Query processed successfully
+2025-03-27 18:44:57,471 - INFO - Environment variables loaded from .env
+2025-03-27 18:44:57,471 - INFO - Script executed directly
+2025-03-27 18:44:57,472 - INFO - Starting MCP Client application
+2025-03-27 18:44:57,472 - INFO - Server script path: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:44:57,472 - INFO - Initializing MCPClient
+2025-03-27 18:44:57,501 - INFO - Anthropic client initialized
+2025-03-27 18:44:57,501 - INFO - Connecting to server
+2025-03-27 18:44:57,501 - INFO - Connecting to server using script: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:44:57,501 - INFO - Using command: python for server script
+2025-03-27 18:44:57,501 - INFO - Establishing stdio client connection
+2025-03-27 18:44:57,507 - INFO - Creating client session
+2025-03-27 18:44:57,508 - INFO - Initializing session
+2025-03-27 18:44:57,723 - INFO - Session initialized successfully
+2025-03-27 18:44:57,724 - INFO - Requesting list of available tools
+2025-03-27 18:44:57,726 - INFO - Connected to server with tools: ['get_ner', 'calculate_total_amount']
+2025-03-27 18:44:57,726 - INFO - Starting chat loop
+2025-03-27 18:44:57,726 - INFO - Starting interactive chat loop
+2025-03-27 18:45:03,322 - INFO - User input: hangi toollar var
+2025-03-27 18:45:03,322 - INFO - Processing user query
+2025-03-27 18:45:03,323 - INFO - Processing query: hangi toollar var
+2025-03-27 18:45:03,323 - INFO - Fetching available tools
+2025-03-27 18:45:03,326 - INFO - Making initial Claude API call
+2025-03-27 18:45:09,957 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:45:09,961 - INFO - Received initial response from Claude
+2025-03-27 18:45:09,961 - INFO - Processing Claude response
+2025-03-27 18:45:09,961 - INFO - Processing text content from Claude
+2025-03-27 18:45:09,961 - INFO - Query processing completed
+2025-03-27 18:45:09,962 - INFO - Query processed successfully
+2025-03-27 18:45:56,077 - INFO - User input: cüzdanımda 2000 tl param var 300 tl borcum var ne kadar param kalır.
+2025-03-27 18:45:56,078 - INFO - Processing user query
+2025-03-27 18:45:56,078 - INFO - Processing query: cüzdanımda 2000 tl param var 300 tl borcum var ne kadar param kalır.
+2025-03-27 18:45:56,078 - INFO - Fetching available tools
+2025-03-27 18:45:56,083 - INFO - Making initial Claude API call
+2025-03-27 18:45:58,957 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:45:58,960 - INFO - Received initial response from Claude
+2025-03-27 18:45:58,960 - INFO - Processing Claude response
+2025-03-27 18:45:58,960 - INFO - Processing text content from Claude
+2025-03-27 18:45:58,960 - INFO - Processing tool use: calculate_total_amount
+2025-03-27 18:45:58,960 - INFO - Executing tool call: calculate_total_amount
+2025-03-27 18:45:58,965 - INFO - Tool call completed: calculate_total_amount
+2025-03-27 18:45:58,966 - INFO - Making follow-up Claude API call with tool results
+2025-03-27 18:46:01,827 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2025-03-27 18:46:01,829 - INFO - Received follow-up response from Claude
+2025-03-27 18:46:01,830 - INFO - Query processing completed
+2025-03-27 18:46:01,830 - INFO - Query processed successfully

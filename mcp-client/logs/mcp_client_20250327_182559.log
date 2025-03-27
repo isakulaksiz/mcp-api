@@ -1,0 +1,88 @@
+2025-03-27 18:25:59,366 - MCPClient - INFO - Importing required libraries
+2025-03-27 18:25:59,366 - MCPClient - INFO - Loading environment variables from .env
+2025-03-27 18:25:59,368 - MCPClient - INFO - Setting up Streamlit UI
+2025-03-27 18:25:59,370 - MCPClient - DEBUG - GPT-2 URL input: http://127.0.0.1:5054/generate
+2025-03-27 18:25:59,371 - MCPClient - DEBUG - Server script input: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:25:59,372 - MCPClient - INFO - Setting up chat interface
+2025-03-27 18:25:59,373 - MCPClient - DEBUG - Displaying 0 messages
+2025-03-27 18:25:59,373 - MCPClient - DEBUG - Setting up user input chat field
+2025-03-27 18:25:59,373 - MCPClient - INFO - Displaying usage instructions
+2025-03-27 18:25:59,374 - MCPClient - INFO - Streamlit app initialization complete
+2025-03-27 18:26:00,066 - MCPClient - INFO - Importing required libraries
+2025-03-27 18:26:00,067 - MCPClient - INFO - Loading environment variables from .env
+2025-03-27 18:26:00,068 - MCPClient - INFO - Setting up Streamlit UI
+2025-03-27 18:26:00,071 - MCPClient - DEBUG - GPT-2 URL input: http://127.0.0.1:5054/generate
+2025-03-27 18:26:00,071 - MCPClient - DEBUG - Server script input: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:26:00,072 - MCPClient - INFO - Connect to server button clicked
+2025-03-27 18:26:00,072 - MCPClient - INFO - Attempting to connect to server: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:26:00,072 - MCPClient - INFO - Creating new client with GPT-2 URL: http://127.0.0.1:5054/generate
+2025-03-27 18:26:00,072 - MCPClient - INFO - Initializing MCPClient with GPT-2 URL: http://127.0.0.1:5054/generate
+2025-03-27 18:26:00,072 - MCPClient - DEBUG - Client initialized with GPT-2 URL: http://127.0.0.1:5054/generate
+2025-03-27 18:26:00,072 - MCPClient - DEBUG - Running async function: connect_to_server
+2025-03-27 18:26:00,073 - MCPClient - INFO - Attempting to connect to server with script: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:26:00,073 - MCPClient - DEBUG - Using command: python for script type: Python
+2025-03-27 18:26:00,073 - MCPClient - DEBUG - Server parameters created: command='python' args=['/Users/isakulaksiz/Desktop/mcp-server/weather/tools.py'] env=None encoding='utf-8' encoding_error_handler='strict'
+2025-03-27 18:26:00,073 - MCPClient - INFO - Creating stdio transport
+2025-03-27 18:26:00,087 - MCPClient - DEBUG - Stdio transport created successfully
+2025-03-27 18:26:00,088 - MCPClient - INFO - Creating client session
+2025-03-27 18:26:00,088 - MCPClient - DEBUG - Client session created successfully
+2025-03-27 18:26:00,088 - MCPClient - INFO - Initializing session
+2025-03-27 18:26:00,449 - MCPClient - DEBUG - Session initialized successfully
+2025-03-27 18:26:00,449 - MCPClient - INFO - Listing available tools
+2025-03-27 18:26:00,451 - MCPClient - INFO - Available tools: get_ner
+2025-03-27 18:26:00,451 - MCPClient - INFO - Connection to server established successfully
+2025-03-27 18:26:00,451 - MCPClient - DEBUG - Async function completed: connect_to_server
+2025-03-27 18:26:00,451 - MCPClient - INFO - Connection successful. Available tools: get_ner
+2025-03-27 18:26:00,452 - MCPClient - INFO - Setting up chat interface
+2025-03-27 18:26:00,452 - MCPClient - DEBUG - Displaying 0 messages
+2025-03-27 18:26:00,452 - MCPClient - DEBUG - Setting up user input chat field
+2025-03-27 18:26:00,453 - MCPClient - INFO - Displaying usage instructions
+2025-03-27 18:26:00,453 - MCPClient - INFO - Streamlit app initialization complete
+2025-03-27 18:26:04,770 - MCPClient - INFO - Importing required libraries
+2025-03-27 18:26:04,770 - MCPClient - INFO - Loading environment variables from .env
+2025-03-27 18:26:04,773 - MCPClient - INFO - Setting up Streamlit UI
+2025-03-27 18:26:04,776 - MCPClient - DEBUG - GPT-2 URL input: http://127.0.0.1:5054/generate
+2025-03-27 18:26:04,777 - MCPClient - DEBUG - Server script input: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 18:26:04,778 - MCPClient - INFO - Setting up chat interface
+2025-03-27 18:26:04,779 - MCPClient - DEBUG - Displaying 0 messages
+2025-03-27 18:26:04,780 - MCPClient - DEBUG - Setting up user input chat field
+2025-03-27 18:26:04,780 - MCPClient - INFO - User input received: hello...
+2025-03-27 18:26:04,781 - MCPClient - DEBUG - Adding user message to session state
+2025-03-27 18:26:04,782 - MCPClient - DEBUG - Displaying user message
+2025-03-27 18:26:04,784 - MCPClient - INFO - Processing user query
+2025-03-27 18:26:04,787 - MCPClient - DEBUG - Calling process_query
+2025-03-27 18:26:04,787 - MCPClient - DEBUG - Running async function: process_query
+2025-03-27 18:26:04,788 - MCPClient - INFO - Processing query: hello
+2025-03-27 18:26:04,789 - MCPClient - DEBUG - Formatting tools information for prompt
+2025-03-27 18:26:04,789 - MCPClient - DEBUG - Tools info: Available tools:
+- get_ner: 
+  Input schema: {'properties': {'text': {'title': 'Text', 'type': 'string'}}, 'required': ['text'], 'title': 'get_nerArguments', 'type': 'object'}
+
+2025-03-27 18:26:04,789 - MCPClient - DEBUG - Created prompt with length: 379
+2025-03-27 18:26:04,790 - MCPClient - INFO - Calling GPT-2 API
+2025-03-27 18:26:04,790 - MCPClient - INFO - Calling GPT-2 API with prompt length: 379 and max_length: 100
+2025-03-27 18:26:04,790 - MCPClient - DEBUG - Executing GPT-2 API call in thread
+2025-03-27 18:26:04,790 - MCPClient - INFO - Sending POST request to http://127.0.0.1:5054/generate
+2025-03-27 18:26:04,790 - MCPClient - INFO - Sending POST request to {'prompt': 'Available tools:\n- get_ner: \n  Input schema: {\'properties\': {\'text\': {\'title\': \'Text\', \'type\': \'string\'}}, \'required\': [\'text\'], \'title\': \'get_nerArguments\', \'type\': \'object\'}\n\n\nWhen you need to use a tool, respond with:\nUse tool: <tool_name> with args: {<json_args>}\n\nFor example:\nUse tool: get_ner with args: {"text": "John Smith works at Google."}\n\nUser query: hello\n\nAnswer: ', 'max_length': 100}
+2025-03-27 18:26:04,835 - MCPClient - INFO - Received response with status code: 500
+2025-03-27 18:26:04,835 - MCPClient - ERROR - API Error (500): <!doctype html>
+<html lang=en>
+<title>500 Internal Server Error</title>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error and was unable to complete your request. Either the s...
+2025-03-27 18:26:04,835 - MCPClient - DEBUG - GPT-2 API response received: {'error': 'API Error (500): <!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to com...
+2025-03-27 18:26:04,836 - MCPClient - ERROR - Error in GPT-2 response: API Error (500): <!doctype html>
+<html lang=en>
+<title>500 Internal Server Error</title>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error and was unable to complete your request. Either the s...
+2025-03-27 18:26:04,836 - MCPClient - DEBUG - Async function completed: process_query
+2025-03-27 18:26:04,836 - MCPClient - DEBUG - Query processing complete: {'success': False, 'error': 'API Error (500): <!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and...
+2025-03-27 18:26:04,836 - MCPClient - ERROR - Error in query processing: API Error (500): <!doctype html>
+<html lang=en>
+<title>500 Internal Server Error</title>
+<h1>Internal Server Error</h1>
+<p>The server encountered an internal error and was unable to complete your request. Either the s...
+2025-03-27 18:26:04,837 - MCPClient - DEBUG - Adding assistant message to session state
+2025-03-27 18:26:04,837 - MCPClient - INFO - Displaying usage instructions
+2025-03-27 18:26:04,838 - MCPClient - INFO - Streamlit app initialization complete

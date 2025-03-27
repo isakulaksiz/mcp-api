@@ -1,0 +1,97 @@
+2025-03-27 15:12:17,649 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:12:17,652 - mcp_client - DEBUG - Rendering disconnected UI state
+2025-03-27 15:12:17,652 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:12:18,696 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:12:18,699 - mcp_client - INFO - Model selection changed. Using GPT-2: True
+2025-03-27 15:12:18,702 - mcp_client - DEBUG - Rendering disconnected UI state
+2025-03-27 15:12:18,703 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:12:20,694 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:12:20,698 - mcp_client - INFO - Connect button clicked for server: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 15:12:20,699 - mcp_client - DEBUG - Running async function: connect_to_server
+2025-03-27 15:12:20,699 - mcp_client - DEBUG - Using existing event loop
+2025-03-27 15:12:20,699 - mcp_client - DEBUG - Executing connect_to_server in event loop
+2025-03-27 15:12:20,699 - mcp_client - INFO - Attempting connection to server with script: /Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 15:12:20,701 - mcp_client - DEBUG - Server parameters: command=python, script=/Users/isakulaksiz/Desktop/mcp-server/weather/tools.py
+2025-03-27 15:12:20,711 - mcp_client - DEBUG - STDIO transport established
+2025-03-27 15:12:20,713 - mcp_client - DEBUG - Client session created
+2025-03-27 15:12:21,119 - mcp_client - INFO - Session initialized successfully
+2025-03-27 15:12:21,120 - mcp_client - INFO - Found 1 available tools
+2025-03-27 15:12:21,121 - mcp_client - DEBUG - Tool available: get_ner - 
+2025-03-27 15:12:21,121 - mcp_client - INFO - Successfully connected to MCP server
+2025-03-27 15:12:21,121 - mcp_client - DEBUG - Function connect_to_server completed successfully
+2025-03-27 15:12:21,121 - mcp_client - INFO - Successfully connected to server with tools: get_ner
+2025-03-27 15:12:21,122 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:12:21,122 - mcp_client - DEBUG - Rendering tools UI with 1 tools
+2025-03-27 15:12:21,123 - mcp_client - DEBUG - Found schema for tool: get_ner
+2025-03-27 15:12:21,123 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_ner
+2025-03-27 15:12:21,123 - mcp_client - DEBUG - Rendering input for parameter: text of type string
+2025-03-27 15:12:21,123 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:12:31,525 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:12:31,528 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:12:31,529 - mcp_client - INFO - New user query received: merhaba
+2025-03-27 15:12:31,530 - mcp_client - INFO - Calling GPT-2 API with prompt: merhaba...
+2025-03-27 15:12:34,528 - mcp_client - DEBUG - GPT-2 API response: {'generated_text': 'merhaba, to be a part of the "Hazmat" (also known as terrorist group) of the Palestinian territories.\n\nAt least 10 are living and being held in Gaza.\n\nThe Israel Defense Forces said over 400 men'}
+2025-03-27 15:12:34,529 - mcp_client - INFO - GPT-2 generated text: merhaba, to be a part of the "Hazmat" (also known as terrorist group) of the Palestinian territories...
+2025-03-27 15:12:34,530 - mcp_client - DEBUG - Displayed GPT-2's response
+2025-03-27 15:12:34,531 - mcp_client - DEBUG - Added assistant response to message history
+2025-03-27 15:12:34,533 - mcp_client - DEBUG - Rendering tools UI with 1 tools
+2025-03-27 15:12:34,534 - mcp_client - DEBUG - Found schema for tool: get_ner
+2025-03-27 15:12:34,535 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_ner
+2025-03-27 15:12:34,535 - mcp_client - DEBUG - Rendering input for parameter: text of type string
+2025-03-27 15:12:34,536 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:12:49,326 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:12:49,331 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:12:49,332 - mcp_client - INFO - New user query received: hi, how are you doing
+2025-03-27 15:12:49,334 - mcp_client - INFO - Calling GPT-2 API with prompt: hi, how are you doing...
+2025-03-27 15:12:51,778 - mcp_client - DEBUG - GPT-2 API response: {'generated_text': "hi, how are you doing, I don't need to ask you to say anything.\n\nNawaki: There are four people on my party committee. If they ask you something, then why?\n\nShiro: No you say"}
+2025-03-27 15:12:51,779 - mcp_client - INFO - GPT-2 generated text: hi, how are you doing, I don't need to ask you to say anything.
+
+Nawaki: There are four people on my...
+2025-03-27 15:12:51,780 - mcp_client - DEBUG - Displayed GPT-2's response
+2025-03-27 15:12:51,781 - mcp_client - DEBUG - Added assistant response to message history
+2025-03-27 15:12:51,782 - mcp_client - DEBUG - Rendering tools UI with 1 tools
+2025-03-27 15:12:51,784 - mcp_client - DEBUG - Found schema for tool: get_ner
+2025-03-27 15:12:51,784 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_ner
+2025-03-27 15:12:51,785 - mcp_client - DEBUG - Rendering input for parameter: text of type string
+2025-03-27 15:12:51,786 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:13:20,142 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:13:20,147 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:13:20,148 - mcp_client - DEBUG - Rendering tools UI with 1 tools
+2025-03-27 15:13:20,148 - mcp_client - DEBUG - Found schema for tool: get_ner
+2025-03-27 15:13:20,149 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_ner
+2025-03-27 15:13:20,149 - mcp_client - DEBUG - Rendering input for parameter: text of type string
+2025-03-27 15:13:20,149 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:13:20,234 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:13:20,236 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:13:20,237 - mcp_client - DEBUG - Rendering tools UI with 1 tools
+2025-03-27 15:13:20,237 - mcp_client - DEBUG - Found schema for tool: get_ner
+2025-03-27 15:13:20,237 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_ner
+2025-03-27 15:13:20,238 - mcp_client - DEBUG - Rendering input for parameter: text of type string
+2025-03-27 15:13:20,238 - mcp_client - INFO - Direct tool call initiated for: get_ner with params: {"text": "isa kulaks\u0131z atat\u00fcrk \u00fcniversitesinde doktora yapmaktad\u0131r"}
+2025-03-27 15:13:20,238 - mcp_client - DEBUG - Running async function: call_tool_directly
+2025-03-27 15:13:20,238 - mcp_client - DEBUG - Using existing event loop
+2025-03-27 15:13:20,239 - mcp_client - DEBUG - Executing call_tool_directly in event loop
+2025-03-27 15:13:20,239 - mcp_client - INFO - Directly calling tool: get_ner with args: {"text": "isa kulaks\u0131z atat\u00fcrk \u00fcniversitesinde doktora yapmaktad\u0131r"}
+2025-03-27 15:13:20,239 - mcp_client - DEBUG - Executing direct tool call for get_ner
+2025-03-27 15:13:20,239 - mcp_client - INFO - Direct tool call task created, waiting for completion
+2025-03-27 15:13:23,240 - mcp_client - ERROR - Timeout calling tool get_ner after 10 seconds
+2025-03-27 15:13:23,242 - mcp_client - DEBUG - Function call_tool_directly completed successfully
+2025-03-27 15:13:23,244 - mcp_client - DEBUG - Displayed direct tool call result
+2025-03-27 15:13:23,245 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:13:27,109 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:13:27,114 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:13:27,115 - mcp_client - DEBUG - Rendering tools UI with 1 tools
+2025-03-27 15:13:27,116 - mcp_client - DEBUG - Found schema for tool: get_ner
+2025-03-27 15:13:27,116 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_ner
+2025-03-27 15:13:27,117 - mcp_client - DEBUG - Rendering input for parameter: text of type string
+2025-03-27 15:13:27,117 - mcp_client - INFO - Direct tool call initiated for: get_ner with params: {"text": "isa kulaks\u0131z atat\u00fcrk \u00fcniversitesinde doktora yapmaktad\u0131r"}
+2025-03-27 15:13:27,118 - mcp_client - DEBUG - Running async function: call_tool_directly
+2025-03-27 15:13:27,119 - mcp_client - DEBUG - Using existing event loop
+2025-03-27 15:13:27,119 - mcp_client - DEBUG - Executing call_tool_directly in event loop
+2025-03-27 15:13:27,120 - mcp_client - INFO - Directly calling tool: get_ner with args: {"text": "isa kulaks\u0131z atat\u00fcrk \u00fcniversitesinde doktora yapmaktad\u0131r"}
+2025-03-27 15:13:27,120 - mcp_client - DEBUG - Executing direct tool call for get_ner
+2025-03-27 15:13:27,120 - mcp_client - INFO - Direct tool call task created, waiting for completion
+2025-03-27 15:13:30,122 - mcp_client - ERROR - Timeout calling tool get_ner after 10 seconds
+2025-03-27 15:13:30,125 - mcp_client - DEBUG - Function call_tool_directly completed successfully
+2025-03-27 15:13:30,127 - mcp_client - DEBUG - Displayed direct tool call result
+2025-03-27 15:13:30,129 - mcp_client - INFO - MCP client application fully initialized and ready

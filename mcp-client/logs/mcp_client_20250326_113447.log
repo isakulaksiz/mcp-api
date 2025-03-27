@@ -1,0 +1,66 @@
+2025-03-26 11:34:47,421 - mcp_client - INFO - Streamlit app started
+2025-03-26 11:34:47,424 - mcp_client - INFO - Connect button clicked for server: /Users/isakulaksiz/Desktop/mcp-server/weather/weather.py
+2025-03-26 11:34:47,425 - mcp_client - DEBUG - Running async function: connect_to_server
+2025-03-26 11:34:47,426 - mcp_client - DEBUG - Using existing event loop
+2025-03-26 11:34:47,426 - mcp_client - DEBUG - Executing connect_to_server in event loop
+2025-03-26 11:34:47,426 - mcp_client - INFO - Attempting connection to server with script: /Users/isakulaksiz/Desktop/mcp-server/weather/weather.py
+2025-03-26 11:34:47,427 - mcp_client - DEBUG - Server parameters: command=python, script=/Users/isakulaksiz/Desktop/mcp-server/weather/weather.py
+2025-03-26 11:34:47,446 - mcp_client - DEBUG - STDIO transport established
+2025-03-26 11:34:47,447 - mcp_client - DEBUG - Client session created
+2025-03-26 11:34:47,762 - mcp_client - INFO - Session initialized successfully
+2025-03-26 11:34:47,764 - mcp_client - INFO - Found 2 available tools
+2025-03-26 11:34:47,764 - mcp_client - DEBUG - Tool available: get_alerts - Get weather alerts for a US state.
+
+    Args:
+        state: Two-letter US state code (e.g. CA, NY)
+    
+2025-03-26 11:34:47,764 - mcp_client - DEBUG - Tool available: get_forecast - Get weather forecast for a location.
+
+    Args:
+        latitude: Latitude of the location
+        longitude: Longitude of the location
+    
+2025-03-26 11:34:47,764 - mcp_client - INFO - Successfully connected to MCP server
+2025-03-26 11:34:47,764 - mcp_client - DEBUG - Function connect_to_server completed successfully
+2025-03-26 11:34:47,764 - mcp_client - INFO - Successfully connected to server with tools: get_alerts, get_forecast
+2025-03-26 11:34:47,765 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-26 11:34:47,765 - mcp_client - DEBUG - Rendering tools UI with 2 tools
+2025-03-26 11:34:47,766 - mcp_client - DEBUG - Found schema for tool: get_alerts
+2025-03-26 11:34:47,766 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_alerts
+2025-03-26 11:34:47,766 - mcp_client - DEBUG - Rendering input for parameter: state of type string
+2025-03-26 11:34:47,767 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-26 13:18:29,847 - mcp_client - INFO - Streamlit app started
+2025-03-26 13:18:29,850 - mcp_client - DEBUG - Initializing messages in session state
+2025-03-26 13:18:29,850 - mcp_client - DEBUG - Rendering disconnected UI state
+2025-03-26 13:18:29,850 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-26 13:18:32,640 - mcp_client - INFO - Streamlit app started
+2025-03-26 13:18:32,643 - mcp_client - INFO - Connect button clicked for server: /Users/isakulaksiz/Desktop/mcp-server/weather/weather.py
+2025-03-26 13:18:32,644 - mcp_client - DEBUG - Running async function: connect_to_server
+2025-03-26 13:18:32,644 - mcp_client - DEBUG - Using existing event loop
+2025-03-26 13:18:32,645 - mcp_client - DEBUG - Executing connect_to_server in event loop
+2025-03-26 13:18:32,645 - mcp_client - INFO - Attempting connection to server with script: /Users/isakulaksiz/Desktop/mcp-server/weather/weather.py
+2025-03-26 13:18:32,645 - mcp_client - DEBUG - Server parameters: command=python, script=/Users/isakulaksiz/Desktop/mcp-server/weather/weather.py
+2025-03-26 13:18:32,655 - mcp_client - DEBUG - STDIO transport established
+2025-03-26 13:18:32,657 - mcp_client - DEBUG - Client session created
+2025-03-26 13:18:33,125 - mcp_client - INFO - Session initialized successfully
+2025-03-26 13:18:33,127 - mcp_client - INFO - Found 2 available tools
+2025-03-26 13:18:33,127 - mcp_client - DEBUG - Tool available: get_alerts - Get weather alerts for a US state.
+
+    Args:
+        state: Two-letter US state code (e.g. CA, NY)
+    
+2025-03-26 13:18:33,127 - mcp_client - DEBUG - Tool available: get_forecast - Get weather forecast for a location.
+
+    Args:
+        latitude: Latitude of the location
+        longitude: Longitude of the location
+    
+2025-03-26 13:18:33,127 - mcp_client - INFO - Successfully connected to MCP server
+2025-03-26 13:18:33,127 - mcp_client - DEBUG - Function connect_to_server completed successfully
+2025-03-26 13:18:33,127 - mcp_client - INFO - Successfully connected to server with tools: get_alerts, get_forecast
+2025-03-26 13:18:33,128 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-26 13:18:33,128 - mcp_client - DEBUG - Rendering tools UI with 2 tools
+2025-03-26 13:18:33,129 - mcp_client - DEBUG - Found schema for tool: get_alerts
+2025-03-26 13:18:33,129 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_alerts
+2025-03-26 13:18:33,129 - mcp_client - DEBUG - Rendering input for parameter: state of type string
+2025-03-26 13:18:33,129 - mcp_client - INFO - MCP client application fully initialized and ready

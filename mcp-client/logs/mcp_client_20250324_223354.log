@@ -1,0 +1,15 @@
+2025-03-24 22:33:54,929 - mcp_client - INFO - Streamlit app started
+2025-03-24 22:33:54,933 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-24 22:33:54,934 - mcp_client - INFO - New user query received: What weather alerts are active for nyc
+
+2025-03-24 22:33:54,936 - mcp_client - DEBUG - Sending query to Claude via process_query
+2025-03-24 22:33:54,937 - mcp_client - DEBUG - Running async function: process_query
+2025-03-24 22:33:54,937 - mcp_client - DEBUG - Using existing event loop
+2025-03-24 22:33:54,937 - mcp_client - DEBUG - Executing process_query in event loop
+2025-03-24 22:33:54,937 - mcp_client - INFO - Processing query: What weather alerts are active for nyc
+
+2025-03-24 22:33:54,937 - mcp_client - DEBUG - Making initial Claude API call
+2025-03-24 22:33:57,844 - mcp_client - DEBUG - Received response from Claude with 2 content items
+2025-03-24 22:33:57,845 - mcp_client - DEBUG - Received text response from Claude: Since you're asking about New York City (NYC), I'll check the weather alerts for New York state. The...
+2025-03-24 22:33:57,845 - mcp_client - INFO - Claude is requesting tool: get_alerts with args: {"state": "NY"}
+2025-03-24 22:33:57,845 - mcp_client - DEBUG - Executing tool call for get_alerts

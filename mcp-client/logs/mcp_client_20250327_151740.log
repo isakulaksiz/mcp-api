@@ -1,0 +1,57 @@
+2025-03-27 15:17:40,270 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:17:40,272 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:17:40,273 - mcp_client - DEBUG - Rendering tools UI with 2 tools
+2025-03-27 15:17:40,273 - mcp_client - DEBUG - Found schema for tool: get_alerts
+2025-03-27 15:17:40,273 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_alerts
+2025-03-27 15:17:40,274 - mcp_client - DEBUG - Rendering input for parameter: state of type string
+2025-03-27 15:17:40,274 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:17:40,350 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:17:40,350 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:17:40,353 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:17:40,353 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:17:40,356 - mcp_client - DEBUG - Rendering tools UI with 2 tools
+2025-03-27 15:17:40,356 - mcp_client - DEBUG - Rendering tools UI with 2 tools
+2025-03-27 15:17:40,358 - mcp_client - DEBUG - Found schema for tool: get_alerts
+2025-03-27 15:17:40,358 - mcp_client - DEBUG - Found schema for tool: get_alerts
+2025-03-27 15:17:40,358 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_alerts
+2025-03-27 15:17:40,358 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_alerts
+2025-03-27 15:17:40,360 - mcp_client - DEBUG - Rendering input for parameter: state of type string
+2025-03-27 15:17:40,360 - mcp_client - DEBUG - Rendering input for parameter: state of type string
+2025-03-27 15:17:40,364 - mcp_client - INFO - Direct tool call initiated for: get_alerts with params: {"state": "isa kulaks\u0131z"}
+2025-03-27 15:17:40,364 - mcp_client - INFO - Direct tool call initiated for: get_alerts with params: {"state": "isa kulaks\u0131z"}
+2025-03-27 15:17:40,368 - mcp_client - DEBUG - Running async function: call_tool_directly
+2025-03-27 15:17:40,368 - mcp_client - DEBUG - Running async function: call_tool_directly
+2025-03-27 15:17:40,371 - mcp_client - DEBUG - Using existing event loop
+2025-03-27 15:17:40,371 - mcp_client - DEBUG - Using existing event loop
+2025-03-27 15:17:40,373 - mcp_client - DEBUG - Executing call_tool_directly in event loop
+2025-03-27 15:17:40,373 - mcp_client - DEBUG - Executing call_tool_directly in event loop
+2025-03-27 15:17:40,374 - mcp_client - INFO - Directly calling tool: get_alerts with args: {"state": "isa kulaks\u0131z"}
+2025-03-27 15:17:40,374 - mcp_client - INFO - Directly calling tool: get_alerts with args: {"state": "isa kulaks\u0131z"}
+2025-03-27 15:17:40,375 - mcp_client - DEBUG - Executing direct tool call for get_alerts
+2025-03-27 15:17:40,375 - mcp_client - DEBUG - Executing direct tool call for get_alerts
+2025-03-27 15:17:40,376 - mcp_client - INFO - Direct tool call task created, waiting for completion
+2025-03-27 15:17:40,376 - mcp_client - INFO - Direct tool call task created, waiting for completion
+2025-03-27 15:17:43,377 - mcp_client - ERROR - Timeout calling tool get_alerts after 3 seconds
+2025-03-27 15:17:43,377 - mcp_client - ERROR - Timeout calling tool get_alerts after 3 seconds
+2025-03-27 15:17:43,378 - mcp_client - DEBUG - Function call_tool_directly completed successfully
+2025-03-27 15:17:43,378 - mcp_client - DEBUG - Function call_tool_directly completed successfully
+2025-03-27 15:17:43,378 - mcp_client - DEBUG - Displayed direct tool call result
+2025-03-27 15:17:43,378 - mcp_client - DEBUG - Displayed direct tool call result
+2025-03-27 15:17:43,379 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:17:43,379 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:17:48,632 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:17:48,632 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:17:48,634 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:17:48,634 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:17:48,635 - mcp_client - DEBUG - Rendering tools UI with 2 tools
+2025-03-27 15:17:48,635 - mcp_client - DEBUG - Rendering tools UI with 2 tools
+2025-03-27 15:17:48,636 - mcp_client - DEBUG - Found schema for tool: get_forecast
+2025-03-27 15:17:48,636 - mcp_client - DEBUG - Found schema for tool: get_forecast
+2025-03-27 15:17:48,637 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_forecast
+2025-03-27 15:17:48,637 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_forecast
+2025-03-27 15:17:48,637 - mcp_client - DEBUG - Rendering input for parameter: latitude of type number
+2025-03-27 15:17:48,637 - mcp_client - DEBUG - Rendering input for parameter: latitude of type number
+2025-03-27 15:17:48,637 - mcp_client - DEBUG - Rendering input for parameter: longitude of type number
+2025-03-27 15:17:48,637 - mcp_client - DEBUG - Rendering input for parameter: longitude of type number
+2025-03-27 15:17:48,638 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:17:48,638 - mcp_client - INFO - MCP client application fully initialized and ready

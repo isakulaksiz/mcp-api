@@ -1,0 +1,41 @@
+2025-03-27 15:19:32,853 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:19:32,856 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:19:32,858 - mcp_client - DEBUG - Rendering tools UI with 1 tools
+2025-03-27 15:19:32,859 - mcp_client - DEBUG - Found schema for tool: get_ner
+2025-03-27 15:19:32,859 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_ner
+2025-03-27 15:19:32,859 - mcp_client - DEBUG - Rendering input for parameter: text of type string
+2025-03-27 15:19:32,859 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:19:32,931 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:19:32,931 - mcp_client - INFO - Streamlit app started
+2025-03-27 15:19:32,932 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:19:32,932 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-27 15:19:32,933 - mcp_client - DEBUG - Rendering tools UI with 1 tools
+2025-03-27 15:19:32,933 - mcp_client - DEBUG - Rendering tools UI with 1 tools
+2025-03-27 15:19:32,934 - mcp_client - DEBUG - Found schema for tool: get_ner
+2025-03-27 15:19:32,934 - mcp_client - DEBUG - Found schema for tool: get_ner
+2025-03-27 15:19:32,934 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_ner
+2025-03-27 15:19:32,934 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_ner
+2025-03-27 15:19:32,934 - mcp_client - DEBUG - Rendering input for parameter: text of type string
+2025-03-27 15:19:32,934 - mcp_client - DEBUG - Rendering input for parameter: text of type string
+2025-03-27 15:19:32,934 - mcp_client - INFO - Direct tool call initiated for: get_ner with params: {"text": "isa kulaks\u0131z"}
+2025-03-27 15:19:32,934 - mcp_client - INFO - Direct tool call initiated for: get_ner with params: {"text": "isa kulaks\u0131z"}
+2025-03-27 15:19:32,935 - mcp_client - DEBUG - Running async function: call_tool_directly
+2025-03-27 15:19:32,935 - mcp_client - DEBUG - Running async function: call_tool_directly
+2025-03-27 15:19:32,935 - mcp_client - DEBUG - Using existing event loop
+2025-03-27 15:19:32,935 - mcp_client - DEBUG - Using existing event loop
+2025-03-27 15:19:32,935 - mcp_client - DEBUG - Executing call_tool_directly in event loop
+2025-03-27 15:19:32,935 - mcp_client - DEBUG - Executing call_tool_directly in event loop
+2025-03-27 15:19:32,935 - mcp_client - INFO - Directly calling tool: get_ner with args: {"text": "isa kulaks\u0131z"}
+2025-03-27 15:19:32,935 - mcp_client - INFO - Directly calling tool: get_ner with args: {"text": "isa kulaks\u0131z"}
+2025-03-27 15:19:32,935 - mcp_client - DEBUG - Executing direct tool call for get_ner
+2025-03-27 15:19:32,935 - mcp_client - DEBUG - Executing direct tool call for get_ner
+2025-03-27 15:19:32,935 - mcp_client - INFO - Direct tool call task created, waiting for completion
+2025-03-27 15:19:32,935 - mcp_client - INFO - Direct tool call task created, waiting for completion
+2025-03-27 15:19:35,936 - mcp_client - ERROR - Timeout calling tool get_ner after 3 seconds
+2025-03-27 15:19:35,936 - mcp_client - ERROR - Timeout calling tool get_ner after 3 seconds
+2025-03-27 15:19:35,939 - mcp_client - DEBUG - Function call_tool_directly completed successfully
+2025-03-27 15:19:35,939 - mcp_client - DEBUG - Function call_tool_directly completed successfully
+2025-03-27 15:19:35,940 - mcp_client - DEBUG - Displayed direct tool call result
+2025-03-27 15:19:35,940 - mcp_client - DEBUG - Displayed direct tool call result
+2025-03-27 15:19:35,941 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-27 15:19:35,941 - mcp_client - INFO - MCP client application fully initialized and ready

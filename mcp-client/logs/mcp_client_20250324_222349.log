@@ -1,0 +1,57 @@
+2025-03-24 22:23:49,667 - mcp_client - INFO - Streamlit app started
+2025-03-24 22:23:49,671 - mcp_client - DEBUG - Initializing messages in session state
+2025-03-24 22:23:49,671 - mcp_client - DEBUG - Rendering disconnected UI state
+2025-03-24 22:23:49,671 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-24 22:23:51,817 - mcp_client - INFO - Streamlit app started
+2025-03-24 22:23:51,819 - mcp_client - INFO - Connect button clicked for server: /Users/isakulaksiz/Desktop/mcp-server/weather/weather.py
+2025-03-24 22:23:51,820 - mcp_client - DEBUG - Running async function: connect_to_server
+2025-03-24 22:23:51,820 - mcp_client - DEBUG - Using existing event loop
+2025-03-24 22:23:51,821 - mcp_client - DEBUG - Executing connect_to_server in event loop
+2025-03-24 22:23:51,821 - mcp_client - INFO - Attempting connection to server with script: /Users/isakulaksiz/Desktop/mcp-server/weather/weather.py
+2025-03-24 22:23:51,821 - mcp_client - DEBUG - Server parameters: command=python, script=/Users/isakulaksiz/Desktop/mcp-server/weather/weather.py
+2025-03-24 22:23:51,833 - mcp_client - DEBUG - STDIO transport established
+2025-03-24 22:23:51,835 - mcp_client - DEBUG - Client session created
+2025-03-24 22:23:52,277 - mcp_client - INFO - Session initialized successfully
+2025-03-24 22:23:52,279 - mcp_client - INFO - Found 2 available tools
+2025-03-24 22:23:52,279 - mcp_client - DEBUG - Tool available: get_alerts - Get weather alerts for a US state.
+
+    Args:
+        state: Two-letter US state code (e.g. CA, NY)
+    
+2025-03-24 22:23:52,279 - mcp_client - DEBUG - Tool available: get_forecast - Get weather forecast for a location.
+
+    Args:
+        latitude: Latitude of the location
+        longitude: Longitude of the location
+    
+2025-03-24 22:23:52,279 - mcp_client - INFO - Successfully connected to MCP server
+2025-03-24 22:23:52,279 - mcp_client - DEBUG - Function connect_to_server completed successfully
+2025-03-24 22:23:52,280 - mcp_client - INFO - Successfully connected to server with tools: get_alerts, get_forecast
+2025-03-24 22:23:52,280 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-24 22:23:52,281 - mcp_client - DEBUG - Rendering tools UI with 2 tools
+2025-03-24 22:23:52,281 - mcp_client - DEBUG - Found schema for tool: get_alerts
+2025-03-24 22:23:52,281 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_alerts
+2025-03-24 22:23:52,282 - mcp_client - DEBUG - Rendering input for parameter: state of type string
+2025-03-24 22:23:52,282 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-24 22:24:01,229 - mcp_client - INFO - Streamlit app started
+2025-03-24 22:24:01,231 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-24 22:24:01,233 - mcp_client - DEBUG - Rendering tools UI with 2 tools
+2025-03-24 22:24:01,235 - mcp_client - DEBUG - Found schema for tool: get_alerts
+2025-03-24 22:24:01,235 - mcp_client - DEBUG - Rendering parameter inputs for tool: get_alerts
+2025-03-24 22:24:01,236 - mcp_client - DEBUG - Rendering input for parameter: state of type string
+2025-03-24 22:24:01,237 - mcp_client - INFO - MCP client application fully initialized and ready
+2025-03-24 22:24:05,136 - mcp_client - INFO - Streamlit app started
+2025-03-24 22:24:05,139 - mcp_client - DEBUG - Rendering connected UI state
+2025-03-24 22:24:05,139 - mcp_client - INFO - New user query received: What weather alerts are active for nyc
+
+2025-03-24 22:24:05,142 - mcp_client - DEBUG - Sending query to Claude via process_query
+2025-03-24 22:24:05,142 - mcp_client - DEBUG - Running async function: process_query
+2025-03-24 22:24:05,142 - mcp_client - DEBUG - Using existing event loop
+2025-03-24 22:24:05,143 - mcp_client - DEBUG - Executing process_query in event loop
+2025-03-24 22:24:05,143 - mcp_client - INFO - Processing query: What weather alerts are active for nyc
+
+2025-03-24 22:24:05,143 - mcp_client - DEBUG - Making initial Claude API call
+2025-03-24 22:24:07,492 - mcp_client - DEBUG - Received response from Claude with 2 content items
+2025-03-24 22:24:07,492 - mcp_client - DEBUG - Received text response from Claude: Since you're asking about weather alerts for New York City, I'll need to check the alerts for New Yo...
+2025-03-24 22:24:07,492 - mcp_client - INFO - Claude is requesting tool: get_alerts with args: {"state": "NY"}
+2025-03-24 22:24:07,492 - mcp_client - INFO - Executing tool call for get_alerts
