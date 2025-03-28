@@ -27,12 +27,12 @@ NER_API_URL = "http://127.0.0.1:5052/mask_entities"
 async def make_nws_request(url: str, method: str = "GET", data: dict = None, files: dict = None, json: dict = None) -> \
         dict[str, Any] | None:
     logger.info(f"Making {method} request to {url}")
-    logger.debug(f"Request params - data: {data}, files: {files}, json: {json}")
+    logger.info(f"Request params - data: {data}, files: {files}, json: {json}")
 
     headers = {
         "Accept": "application/json"
     }
-    logger.debug(f"Request headers: {headers}")
+    logger.info(f"Request headers: {headers}")
 
     async with httpx.AsyncClient() as client:
         try:
@@ -49,16 +49,16 @@ async def make_nws_request(url: str, method: str = "GET", data: dict = None, fil
                     json=json,
                     timeout=30.0
                 )
-                logger.debug("POST request sent")
+                logger.info("POST request sent")
             else:
-                logger.error(f"Unsupported HTTP method: {method}")
+                logger.info(f"Unsupported HTTP method: {method}")
                 raise ValueError(f"Unsupported HTTP method: {method}")
 
             logger.info(f"Response status code: {response.status_code}")
             response.raise_for_status()
 
             response_json = response.json()
-            logger.debug(f"Response JSON: {response_json}")
+            logger.info(f"Response JSON: {response_json}")
             return response_json
 
         except httpx.RequestError as e:
@@ -78,8 +78,8 @@ async def make_nws_request(url: str, method: str = "GET", data: dict = None, fil
 @mcp.tool()
 async def get_ner(text: str) -> str | None:
     logger.info("get_ner tool called")
-    logger.debug(f"Input text length: {len(text)}")
-    logger.debug(f"Input text (truncated): {text[:100]}...")
+    logger.info(f"Input text length: {len(text)}")
+    logger.info(f"Input text (truncated): {text[:100]}...")
 
     try:
         logger.info("Preparing NER payload")
@@ -98,8 +98,8 @@ async def get_ner(text: str) -> str | None:
 
         logger.info("NER API response received successfully")
         masked_text = response['masked_text']
-        logger.debug(f"Masked text length: {len(masked_text)}")
-        logger.debug(f"Masked text (truncated): {masked_text[:100]}...")
+        logger.info(f"Masked text length: {len(masked_text)}")
+        logger.info(f"Masked text (truncated): {masked_text[:100]}...")
 
         return masked_text
     except KeyError as e:
@@ -111,14 +111,37 @@ async def get_ner(text: str) -> str | None:
         print(f"Error in NER processing: {e}")
         return None
 @mcp.tool()
-def calculate_total_amount(a: int, b: int) -> int:
+async def calculate_total_amount(a: int, b: int) -> int:
     try:
         logger.info(f"Calculating total amount of {a} and {b}")
-        return a + b
+        result = a + b
+        logger.info(f"Calculation result: {result}")
+        return result
     except Exception as e:
         logger.error(f"Error in calculating total amount of {a} and {b}", exc_info=True)
+        raise
 
+@mcp.tool()
+async def calculate_total_amount(a: int, b: int) -> int:
+    try:
+        logger.info(f"Calculating total amount of {a} and {b}")
+        result = a + b
+        logger.info(f"Calculation result: {result}")
+        return result
+    except Exception as e:
+        logger.error(f"Error in calculating total amount of {a} and {b}", exc_info=True)
+        raise
 
+@mcp.tool()
+async def calculate_difference(a: int, b: int) -> int:
+    try:
+        logger.info(f"Calculating total amount of {a} and {b}")
+        result = a - b
+        logger.info(f"Calculation result: {result}")
+        return result
+    except Exception as e:
+        logger.error(f"Error in calculating total amount of {a} and {b}", exc_info=True)
+        raise
 
 if __name__ == "__main__":
     logger.info("Starting MCP server with stdio transport")
