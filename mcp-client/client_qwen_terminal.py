@@ -1,20 +1,22 @@
-import streamlit as st
-import subprocess
-import os
-import json
+import asyncio
+import sys
 import time
-import tempfile
+import json
 import logging
 import datetime
-from pathlib import Path
-import threading
-import queue
-import sys
+import os
+from typing import Optional, List, Dict, Any
+from contextlib import AsyncExitStack
+
+from mcp import ClientSession, StdioServerParameters
+from mcp.client.stdio import stdio_client
+
+from openai import OpenAI
 
 # Configure logging
 log_dir = "logs"
 os.makedirs(log_dir, exist_ok=True)
-log_filename = f"{log_dir}/mcp_streamlit_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+log_filename = f"{log_dir}/mcp_client_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
 
 # Set up file handler
 file_handler = logging.FileHandler(log_filename)
@@ -30,431 +32,393 @@ file_handler.setFormatter(formatter)
 console_handler.setFormatter(formatter)
 
 # Set up logger
-logger = logging.getLogger("MCP_STREAMLIT")
+logger = logging.getLogger("MCP_CLIENT")
 logger.setLevel(logging.DEBUG)
 logger.addHandler(file_handler)
 logger.addHandler(console_handler)
 
-logger.info("Starting MCP Streamlit Interface")
+# Apply nest_asyncio to allow nested event loops
+logger.info("Nest asyncio applied")
 
 
-# Create a lightweight wrapper for the terminal client
-class MCPClientWrapper:
+# ------
+# Basic Client Structure
+# ------
+class MCPClient:
     def __init__(self):
-        logger.info("Initializing MCPClientWrapper")
-        self.process = None
-        self.connected = False
-        self.server_script = None
+        logger.info("Initializing MCPClient")
+        # Initialize session and client objects
+        self.session: Optional[ClientSession] = None
+        self.exit_stack = AsyncExitStack()
+        # Connect to LM Studio with Qwen model
+        logger.info("Configuring OpenAI client for LM Studio connection")
+        self.openai = OpenAI(
+            base_url="http://localhost:1234/v1",  # Default to localhost
+            api_key="lm-studio",
+            timeout=180.0
+        )
+        self.server_script_path = None
         self.tools = []
-        self.python_path = sys.executable
-        self.terminal_client_path = None  # Will be set later
-        self.output_queue = queue.Queue()
-        self.reader_thread = None
-        self.command_queue = queue.Queue()
-        self.writer_thread = None
+        self.connected = False
+        self.chat_history = []
+        logger.debug("MCPClient initialized")
 
-    def connect(self, terminal_client_path, server_script_path):
-        """Connect to the MCP server using the terminal client in a subprocess"""
-        if self.process and self.process.poll() is None:
-            logger.info("Stopping existing client process")
-            self.stop()
+    # -------
+    # Server Connection Management
+    # -------
+    async def connect_to_server(self, server_script_path: str):
+        """Connect to an MCP server"""
+        logger.info("Attempting to connect to server")
+        if self.connected:
+            logger.info("Already connected to server")
+            return [tool.name for tool in self.tools]
 
-        logger.info(f"Starting client process with {terminal_client_path} {server_script_path}")
-        self.terminal_client_path = terminal_client_path
-        self.server_script = server_script_path
+        self.server_script_path = server_script_path
+        logger.debug(f"Server script path: {server_script_path}")
 
+        is_python = server_script_path.endswith('.py')
+        is_js = server_script_path.endswith('.js')
+        if not (is_python or is_js):
+            logger.info(f"Invalid server script format: {server_script_path}")
+            raise ValueError("Server script must be a .py or .js file")
+
+        command = "python" if is_python else "node"
+        logger.debug(f"Using command: {command} for server script")
+
+        logger.info(f"Creating StdioServerParameters with {command} {server_script_path}")
+        server_params = StdioServerParameters(
+            command=command,
+            args=[server_script_path],
+            env=None
+        )
+
+        logger.info("Establishing stdio client connection")
         try:
-            # Start the process
-            self.process = subprocess.Popen(
-                [self.python_path, terminal_client_path, server_script_path],
-                stdin=subprocess.PIPE,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE,
-                text=True,
-                bufsize=1  # Line buffered
-            )
-
-            # Start the reader thread
-            self.reader_thread = threading.Thread(
-                target=self._read_output,
-                daemon=True
-            )
-            self.reader_thread.start()
-
-            # Start the writer thread
-            self.writer_thread = threading.Thread(
-                target=self._write_input,
-                daemon=True
-            )
-            self.writer_thread.start()
-
-            # Wait for connection to complete and tools to be listed
-            logger.info("Waiting for connection to complete...")
-            tools_found = False
-            timeout = 30  # 30 seconds timeout
-            start_time = time.time()
-
-            while not tools_found and time.time() - start_time < timeout:
-                try:
-                    output = self.output_queue.get(timeout=1)
-                    if "Available tools:" in output:
-                        self.connected = True
-                        # Extract tools
-                        tools_section = output.split("Available tools:")[1].strip()
-                        tool_lines = tools_section.split("\n")
-                        for line in tool_lines:
-                            if line.startswith("- "):
-                                self.tools.append(line[2:].strip())
-                        tools_found = True
-                        logger.info(f"Found tools: {', '.join(self.tools)}")
-                except queue.Empty:
-                    pass
-
-            if not tools_found:
-                raise TimeoutError("Timed out waiting for tools to be listed")
-
-            logger.info("Connection successful")
-            return self.tools
-
+            stdio_transport = await self.exit_stack.enter_async_context(stdio_client(server_params))
+            self.stdio, self.write = stdio_transport
+            logger.debug("Stdio transport established")
         except Exception as e:
-            logger.error(f"Failed to start client process: {str(e)}", exc_info=True)
-            if self.process:
-                self.process.terminate()
-                self.process = None
+            logger.info(f"Failed to establish stdio transport: {str(e)}")
             raise
 
-    def send_query(self, query):
-        """Send a query to the client process"""
-        if not self.process or self.process.poll() is not None:
-            logger.error("No active client process")
-            raise RuntimeError("Not connected to any server")
-
-        logger.info(f"Sending query: {query[:50]}...")
-
-        # Clear the output queue to start fresh
-        while not self.output_queue.empty():
-            self.output_queue.get_nowait()
-
-        # Send the query
-        self.command_queue.put(query)
-
-        # Collect all output until we get a response
-        responses = []
-        tool_calls = []
-        tool_results = []
-        final_response = None
-        response_received = False
-
-        timeout = 120  # 2 minute timeout
-        start_time = time.time()
-
-        while not response_received and time.time() - start_time < timeout:
-            try:
-                output = self.output_queue.get(timeout=1)
-                responses.append(output)
-
-                # Check for tool execution
-                if "Executing tool:" in output:
-                    tool_name = output.split("Executing tool:")[1].strip()
-                    tool_calls.append({
-                        "name": tool_name,
-                        "output": output
-                    })
-
-                # Check for tool result
-                if "Result:" in output and len(tool_calls) > 0:
-                    result = output.split("Result:")[1].strip()
-                    tool_results.append({
-                        "name": tool_calls[-1]["name"],
-                        "result": result
-                    })
-
-                # Check for final response
-                if output.startswith("Assistant:"):
-                    final_response = output[len("Assistant:"):].strip()
-                    response_received = True
-
-            except queue.Empty:
-                pass
-
-        if not response_received:
-            logger.error("Timed out waiting for response")
-            raise TimeoutError("Timed out waiting for response")
-
-        # Format the response
-        response = {
-            "content": final_response,
-            "role": "assistant"
-        }
-
-        # Add tool calls if any
-        if tool_calls and tool_results:
-            response["has_tool_calls"] = True
-            response["tool_calls"] = tool_calls
-            response["tool_results"] = tool_results
-
-        return response
-
-    def _read_output(self):
-        """Read output from the process in a separate thread"""
-        logger.info("Starting output reader thread")
-        while self.process and self.process.poll() is None:
-            try:
-                line = self.process.stdout.readline()
-                if line:
-                    logger.debug(f"Process output: {line.strip()}")
-                    self.output_queue.put(line.strip())
-
-                # Also check stderr
-                while True:
-                    err_line = self.process.stderr.readline()
-                    if not err_line:
-                        break
-                    logger.error(f"Process error: {err_line.strip()}")
-                    self.output_queue.put(f"ERROR: {err_line.strip()}")
-            except Exception as e:
-                logger.error(f"Error reading process output: {str(e)}")
-                break
-        logger.info("Output reader thread stopped")
-
-    def _write_input(self):
-        """Write input to the process in a separate thread"""
-        logger.info("Starting input writer thread")
-        while self.process and self.process.poll() is None:
-            try:
-                command = self.command_queue.get(timeout=1)
-                logger.debug(f"Writing to process: {command}")
-                self.process.stdin.write(command + "\n")
-                self.process.stdin.flush()
-            except queue.Empty:
-                pass
-            except Exception as e:
-                logger.error(f"Error writing to process: {str(e)}")
-                break
-        logger.info("Input writer thread stopped")
-
-    def stop(self):
-        """Stop the client process"""
-        logger.info("Stopping client process")
-        if self.process and self.process.poll() is None:
-            try:
-                # Try to exit gracefully
-                self.command_queue.put("exit")
-                time.sleep(1)
-                if self.process.poll() is None:
-                    logger.info("Terminating process")
-                    self.process.terminate()
-                    self.process.wait(timeout=5)
-            except Exception as e:
-                logger.error(f"Error stopping process: {str(e)}")
-                # Force kill if needed
-                if self.process.poll() is None:
-                    logger.info("Killing process")
-                    self.process.kill()
-
-        self.process = None
-        self.connected = False
-        logger.info("Client process stopped")
-
-
-# Setup page config
-st.set_page_config(
-    page_title="MCP Client",
-    page_icon="🤖",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
-# Initialize session state
-if 'client' not in st.session_state:
-    st.session_state.client = MCPClientWrapper()
-    st.session_state.tools = []
-    st.session_state.connected = False
-    st.session_state.messages = []
-    st.session_state.processing = False
-
-# Page title
-st.title("MCP Client Interface")
-st.markdown("Connect to MCP servers and interact with tools using LM Studio's Qwen model.")
-
-# Define sidebar
-with st.sidebar:
-    st.header("Server Connection")
-
-    client_script = st.text_input(
-        "Terminal Client Path",
-        value="client_qwen.py",
-        help="Path to the terminal MCP client script"
-    )
-
-    server_script = st.text_input(
-        "Server Script Path",
-        help="Path to the MCP server script (e.g., tools.py)"
-    )
-
-    connect_col, clear_col = st.columns(2)
-
-    with connect_col:
-        connect_button = st.button(
-            "Connect",
-            disabled=st.session_state.processing,
-            use_container_width=True
-        )
-
-    with clear_col:
-        clear_button = st.button(
-            "Clear Chat",
-            disabled=st.session_state.processing,
-            use_container_width=True
-        )
-
-    if connect_button and client_script and server_script:
-        with st.spinner("Connecting to server..."):
-            try:
-                # Verify file paths
-                if not os.path.exists(client_script):
-                    st.error(f"Client script not found: {client_script}")
-                elif not os.path.exists(server_script):
-                    st.error(f"Server script not found: {server_script}")
-                else:
-                    # Connect to the server
-                    st.session_state.tools = st.session_state.client.connect(client_script, server_script)
-                    st.session_state.connected = True
-                    st.success(f"Connected to server: {server_script}")
-                    st.session_state.messages = []  # Clear messages on new connection
-            except Exception as e:
-                st.error(f"Connection failed: {str(e)}")
-
-    if clear_button:
-        st.session_state.messages = []
-        st.success("Chat history cleared")
-
-    # Show connection status and tools
-    st.header("Connection Status")
-    if st.session_state.connected:
-        st.success("Connected to MCP Server")
-        st.info(f"Server: {st.session_state.client.server_script}")
-
-        # Show available tools
-        if st.session_state.tools:
-            st.header("Available Tools")
-            for tool in st.session_state.tools:
-                st.write(f"- {tool}")
-        else:
-            st.warning("No tools available")
-    else:
-        st.error("Not connected to any server")
-
-# Main chat interface
-chat_container = st.container()
-
-# Display chat messages
-with chat_container:
-    for message in st.session_state.messages:
-        if message["role"] == "user":
-            with st.chat_message("user", avatar="🧑‍💻"):
-                st.write(message["content"])
-        elif message["role"] == "assistant":
-            with st.chat_message("assistant", avatar="🤖"):
-                st.write(message["content"])
-        elif message["role"] == "tool":
-            with st.chat_message("assistant", avatar="🔧"):
-                tool_name = message.get("name", "Tool")
-                st.write(f"**{tool_name} Result:**")
-                st.code(message["content"])
-        elif message["role"] == "system":
-            with st.chat_message("assistant", avatar="ℹ️"):
-                st.write(message["content"])
-
-# Input area
-if st.session_state.connected:
-    user_input = st.chat_input(
-        "Type your message here...",
-        disabled=st.session_state.processing
-    )
-
-    if user_input and not st.session_state.processing:
-        st.session_state.processing = True
-
-        # Add user message to chat
-        st.session_state.messages.append({
-            "role": "user",
-            "content": user_input
-        })
-
-        # Create a placeholder for the response
-        with st.chat_message("assistant", avatar="🤖"):
-            response_placeholder = st.empty()
-            response_placeholder.write("Processing your request...")
-
+        logger.info("Creating client session")
         try:
-            # Process the query
-            response = st.session_state.client.send_query(user_input)
+            self.session = await self.exit_stack.enter_async_context(ClientSession(self.stdio, self.write))
+            logger.debug("Client session created")
+        except Exception as e:
+            logger.info(f"Failed to create client session: {str(e)}")
+            raise
 
-            # Check if there were tool calls
-            if "has_tool_calls" in response and response["has_tool_calls"]:
-                # Remove the placeholder
-                response_placeholder.empty()
+        logger.info("Initializing session")
+        try:
+            await self.session.initialize()
+            logger.debug("Session initialized")
+        except Exception as e:
+            logger.info(f"Failed to initialize session: {str(e)}")
+            raise
 
-                # Display tool calls and results
-                for i, tool_call in enumerate(response["tool_calls"]):
-                    # Add tool call message
-                    tool_message = {
-                        "role": "assistant",
-                        "content": f"I need to use the '{tool_call['name']}' tool to help with that."
-                    }
-                    st.session_state.messages.append(tool_message)
+        # List available tools
+        logger.info("Listing available tools")
+        try:
+            response = await self.session.list_tools()
+            self.tools = response.tools
+            tool_names = [tool.name for tool in self.tools]
+            logger.info(f"Found tools: {', '.join(tool_names)}")
 
-                    # Add tool result
-                    if i < len(response["tool_results"]):
-                        result_message = {
-                            "role": "tool",
-                            "name": tool_call["name"],
-                            "content": response["tool_results"][i]["result"]
-                        }
-                        st.session_state.messages.append(result_message)
-
-                # Add final assistant response
-                assistant_message = {
-                    "role": "assistant",
-                    "content": response["content"]
-                }
-                st.session_state.messages.append(assistant_message)
-            else:
-                # Just update the placeholder with the response
-                response_placeholder.empty()
-
-                # Add assistant message
-                assistant_message = {
-                    "role": "assistant",
-                    "content": response["content"]
-                }
-                st.session_state.messages.append(assistant_message)
+            # Print available tools to console
+            print("\nAvailable tools:")
+            for tool in tool_names:
+                print(f"- {tool}")
+            print()
 
         except Exception as e:
-            # Display error message
-            error_message = f"⚠️ Error: {str(e)}"
-            response_placeholder.write(error_message)
+            logger.info(f"Failed to list tools: {str(e)}")
+            raise
 
-            # Add error to chat
-            st.session_state.messages.append({
-                "role": "system",
-                "content": error_message
-            })
+        self.connected = True
+        logger.info("Successfully connected to server")
+        return [tool.name for tool in self.tools]
 
-        st.session_state.processing = False
-        st.rerun()
-else:
-    st.warning("Please connect to a server first using the sidebar.")
+    # ---------
+    # Query Processing Logic
+    # ---------
+    async def process_query(self, query: str) -> Dict[str, Any]:
+        """Process a query using Qwen and available tools"""
+        logger.info(f"Processing query: {query[:50]}...")
+        if not self.connected:
+            logger.info("Attempted to process query but not connected to server")
+            raise ValueError("Not connected to server")
+
+        # Add user message to chat history
+        logger.debug("Adding user message to chat history")
+        self.chat_history.append({
+            "role": "user",
+            "content": query
+        })
+
+        # Format messages for the API call
+        messages = self.chat_history.copy()
+        logger.debug(f"Chat history size: {len(messages)} messages")
+
+        try:
+            # Format tools for OpenAI API
+            logger.info("Formatting tools for OpenAI API")
+            available_tools = [{
+                "type": "function",
+                "function": {
+                    "name": tool.name,
+                    "description": tool.description,
+                    "parameters": tool.inputSchema
+                }
+            } for tool in self.tools]
+            logger.debug(f"Formatted {len(available_tools)} tools for API")
+
+            # Set streaming to false to avoid connection issues
+            logger.info("Calling OpenAI API for chat completion")
+            try:
+                logger.debug("Starting initial API call")
+                print("Sending query to LM Studio...", end="", flush=True)
+                response = self.openai.chat.completions.create(
+                    model="lmstudio-community/qwen2.5-7b-instruct",
+                    messages=messages,
+                    tools=available_tools,
+                    timeout=120.0,
+                    stream=False  # Disable streaming to prevent disconnections
+                )
+                print(" Done.")
+                logger.info("Initial API call completed successfully")
+            except Exception as e:
+                error_msg = f"LM Studio connection error: {str(e)}"
+                logger.info(error_msg)
+                print(f"\n⚠️ {error_msg}. Please check if LM Studio server is running at http://localhost:1234.")
+                return {
+                    "role": "assistant",
+                    "content": f"⚠️ {error_msg}. Please check if LM Studio server is running at http://localhost:1234."
+                }
+
+            # Process response
+            logger.debug("Processing API response")
+            assistant_message = response.choices[0].message
+            assistant_content = assistant_message.content or ""
+            logger.debug(f"Assistant response length: {len(assistant_content)} chars")
+
+            # Create a response dict to add to chat history
+            response_dict = {
+                "role": "assistant",
+                "content": assistant_content
+            }
+
+            # Process tool calls if any
+            if hasattr(assistant_message, 'tool_calls') and assistant_message.tool_calls:
+                logger.info(f"Assistant requested {len(assistant_message.tool_calls)} tool calls")
+                tool_calls_data = []
+
+                for idx, tool_call in enumerate(assistant_message.tool_calls):
+                    tool_name = tool_call.function.name
+                    logger.info(f"Processing tool call #{idx + 1}: {tool_name}")
+                    print(f"\nExecuting tool: {tool_name}")
+
+                    # Parse arguments more safely
+                    logger.info(f"Parsing arguments for {tool_name}")
+                    try:
+                        # First try to evaluate as Python literal
+                        logger.info("Attempting to parse args as Python literal")
+                        tool_args = eval(tool_call.function.arguments)
+                        logger.info("Successfully parsed args as Python literal")
+                    except Exception as parse_error:
+                        logger.info(f"Python literal parsing failed: {str(parse_error)}")
+                        try:
+                            # Then try to parse as JSON
+                            logger.info("Attempting to parse args as JSON")
+                            tool_args = json.loads(tool_call.function.arguments)
+                            logger.info("Successfully parsed args as JSON")
+                        except Exception as json_error:
+                            # Fallback to using the string directly
+                            logger.info(f"JSON parsing failed: {str(json_error)}")
+                            logger.info("Using raw string as arguments")
+                            tool_args = tool_call.function.arguments
+
+                    # Log what we're about to do
+                    logger.info(f"Calling tool: {tool_name}")
+                    logger.info(f"Tool arguments: {tool_args}")
+                    print(f"Arguments: {tool_args}")
+
+                    try:
+                        logger.info(f"Executing tool call to {tool_name}")
+                        result = await self.session.call_tool(tool_name, tool_args)
+                        result_content = result.content
+                        logger.info(f"Tool {tool_name} executed successfully")
+                        print(f"Result: {result_content}")
+                    except Exception as e:
+                        # Handle tool call errors
+                        error_msg = f"Error calling tool: {str(e)}"
+                        logger.info(f"Tool call failed: {error_msg}")
+                        result_content = f"⚠️ {error_msg}"
+                        print(f"Error: {error_msg}")
+
+                    # Create a dummy Result object if needed
+                    if isinstance(result_content, str):
+                        logger.info("Creating dummy result object")
+                        result = type('obj', (object,), {'content': result_content})
+
+                    # Format tool call for chat history
+                    logger.info("Formatting tool call for chat history")
+                    tool_call_data = {
+                        "id": tool_call.id,
+                        "type": "function",
+                        "function": {
+                            "name": tool_name,
+                            "arguments": tool_call.function.arguments
+                        }
+                    }
+                    tool_calls_data.append(tool_call_data)
+
+                    # Add tool result to chat history
+                    logger.info("Adding assistant message with tool call to chat history")
+                    self.chat_history.append({
+                        "role": "assistant",
+                        "content": assistant_content,
+                        "tool_calls": [tool_call_data]
+                    })
+
+                    logger.info("Adding tool result to chat history")
+                    self.chat_history.append({
+                        "role": "tool",
+                        "tool_call_id": tool_call.id,
+                        "content": result.content
+                    })
+
+                    # Get next response from Qwen
+                    try:
+                        logger.info("Getting follow-up response after tool call")
+                        print("\nGetting final response...", end="", flush=True)
+
+                        logger.info(f"Chat history size before follow-up: {len(self.chat_history)} messages")
+                        response = self.openai.chat.completions.create(
+                            model="lmstudio-community/qwen2.5-7b-instruct",
+                            messages=self.chat_history,
+                            tools=available_tools,
+                            timeout=120.0,
+                            stream=False  # Disable streaming
+                        )
+                        print(" Done.")
+                        logger.info("Follow-up response received successfully")
+
+                        next_message = response.choices[0].message
+                        assistant_content = next_message.content or ""
+                        logger.info(f"Follow-up response length: {len(assistant_content)} chars")
+
+                        # Update response dict
+                        response_dict = {
+                            "role": "assistant",
+                            "content": assistant_content
+                        }
+                    except Exception as e:
+                        # Handle LM Studio connection errors for the follow-up
+                        error_msg = f"LM Studio connection error after tool call: {str(e)}"
+                        logger.info(error_msg)
+                        print(f"\n⚠️ {error_msg}")
+                        response_dict = {
+                            "role": "assistant",
+                            "content": f"⚠️ {error_msg}"
+                        }
+
+                # If there were tool calls, add them to the response
+                if tool_calls_data:
+                    logger.info("Adding tool calls data to final response")
+                    response_dict["tool_calls"] = tool_calls_data
+
+            # Add final assistant message to chat history
+            logger.info("Adding final assistant message to chat history")
+            self.chat_history.append(response_dict)
+            logger.info("Query processing completed successfully")
+
+            return response_dict
+
+        except Exception as e:
+            error_msg = f"Error: {str(e)}"
+            logger.info(f"Query processing failed: {error_msg}")
+            print(f"\n⚠️ {error_msg}")
+            error_response = {
+                "role": "assistant",
+                "content": f"⚠️ {error_msg}"
+            }
+            self.chat_history.append(error_response)
+            return error_response
+
+    async def chat_loop(self):
+        """Run an interactive chat loop"""
+        print("\n=== MCP Client Chat Interface ===")
+        print("Type 'exit' or 'quit' to end the session")
+        print("Type 'clear' to clear chat history\n")
+
+        while True:
+            try:
+                # Get user input
+                query = input("\nYou: ")
+
+                # Handle exit commands
+                if query.lower() in ['exit', 'quit']:
+                    print("Exiting chat...")
+                    break
+
+                # Handle clear command
+                if query.lower() == 'clear':
+                    self.chat_history = []
+                    print("Chat history cleared.")
+                    continue
+
+                # Process query
+                if query:
+                    response = await self.process_query(query)
+                    print(f"\nAssistant: {response['content']}")
+            except KeyboardInterrupt:
+                print("\nReceived keyboard interrupt. Exiting...")
+                break
+            except Exception as e:
+                logger.error(f"Error in chat loop: {str(e)}", exc_info=True)
+                print(f"\nError: {str(e)}")
+
+    async def cleanup(self):
+        """Clean up resources"""
+        logger.info("Cleaning up resources")
+        if self.connected:
+            logger.debug("Closing async exit stack")
+            await self.exit_stack.aclose()
+            self.connected = False
+            logger.info("Cleanup completed, disconnected from server")
+        else:
+            logger.debug("No active connection to clean up")
 
 
-# Register cleanup on app shutdown
-def cleanup():
-    if 'client' in st.session_state and st.session_state.client:
-        logger.info("Performing cleanup on app shutdown")
-        st.session_state.client.stop()
+async def main():
+    logger.info("Starting MCP Client application")
+
+    if len(sys.argv) < 2:
+        logger.error("Missing server script path argument")
+        print("Usage: python client_logger.py <path_to_server_script>")
+        sys.exit(1)
+
+    server_script = sys.argv[1]
+    logger.info(f"Server script path: {server_script}")
+
+    client = MCPClient()
+    try:
+        logger.info("Connecting to server")
+        print(f"Connecting to MCP server at: {server_script}")
+        await client.connect_to_server(server_script)
+        print("Connection successful!")
+        logger.info("Starting chat loop")
+        await client.chat_loop()
+    except Exception as e:
+        logger.error(f"Unhandled exception: {str(e)}", exc_info=True)
+        print(f"Fatal error: {str(e)}")
+    finally:
+        logger.info("Running cleanup")
+        await client.cleanup()
+        logger.info("Application shutdown complete")
 
 
-import atexit
-
-atexit.register(cleanup)
+if __name__ == "__main__":
+    logger.info("Script executed directly")
+    asyncio.run(main())
